@@ -16,9 +16,3 @@ instead of showing just short definitions, it provides **detailed explanations a
 - Simple, clean UI with dark/light mode toggle  
 - Built with Flutter (cross-platform: Android, iOS, Web)  
 
----
-
-## 📸 Screenshot  
-
-<img src="assets/screenshot.png" alt="Dictionary App Screenshot" width="300"/>  
-
