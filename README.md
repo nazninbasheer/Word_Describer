@@ -1,10 +1,8 @@
 # 📖 dictionary_app
 
-A new Flutter project.
-
+ 
 ## 📝 What the app is  
 
-This project is a starting point for a Flutter application.  
 It’s a **dictionary app** — but more like a **describer**:  
 instead of showing just short definitions, it provides **detailed explanations and multiple contexts** for each word.  
 
