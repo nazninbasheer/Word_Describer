@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _isDarkMode = false;
+  bool _isDarkMode = true;
 
   void _toggleTheme() {
     setState(() {
@@ -95,31 +95,50 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Dictionary More Like \n A Describer',
+  toolbarHeight: 90,  
+  centerTitle: true,  
+  title: LayoutBuilder(
+    builder: (context, constraints) {
+      final bool isDesktop = constraints.maxWidth >= 600;
+
+      return Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Text(
+          isDesktop
+              ? 'Dictionary More Like A Describer'
+              : 'Dictionary More Like\nA Describer',
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            foreground: Paint()
-              ..shader = ui.Gradient.linear(
-                const Offset(0, 20),
-                const Offset(150, 20),
-                <Color>[
-                  const ui.Color.fromARGB(255, 54, 143, 244),
-                  const ui.Color.fromARGB(255, 216, 33, 233),
-                ],
-              ),
-          ),
+          maxLines: isDesktop ? 1 : 2,
+          overflow: TextOverflow.ellipsis,
+         style: TextStyle(
+          fontSize: isDesktop ? 28 : 24,
+          fontWeight: FontWeight.bold,
+          foreground: Paint()
+            ..shader = ui.Gradient.linear(
+              Offset.zero,
+              Offset(constraints.maxWidth, 0),
+              [
+                Color.fromARGB(255, 54, 143, 244),
+                Color.fromARGB(255, 216, 33, 233),
+              ],
+            ),
         ),
-        actions: [
-          Icon(widget.isDarkMode ? Icons.dark_mode : Icons.light_mode),
-          Switch(
-            value: widget.isDarkMode,
-            onChanged: (_) => widget.onToggleTheme(),
-          ),
-        ],
-      ),
+
+        ),
+      );
+    },
+  ),
+  
+  actions: [
+    Icon(widget.isDarkMode ? Icons.dark_mode : Icons.light_mode),
+    Switch(
+      value: widget.isDarkMode,
+      onChanged: (_) => widget.onToggleTheme(),
+    ),
+    const SizedBox(width: 12),
+  ],
+),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
