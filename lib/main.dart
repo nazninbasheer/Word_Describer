@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-// HomeScreen WITH theme toggle and gradient title
+// HomeScreen with theme toggle and gradient title
 class HomeScreen extends StatefulWidget {
   final bool isDarkMode;
   final VoidCallback onToggleTheme;
@@ -129,15 +129,15 @@ class _HomeScreenState extends State<HomeScreen> {
     },
   ),
   
-  actions: [
-    Icon(widget.isDarkMode ? Icons.dark_mode : Icons.light_mode),
-    Switch(
-      value: widget.isDarkMode,
-      onChanged: (_) => widget.onToggleTheme(),
+      actions: [
+        Icon(widget.isDarkMode ? Icons.dark_mode : Icons.light_mode),
+        Switch(
+          value: widget.isDarkMode,
+          onChanged: (_) => widget.onToggleTheme(),
+        ),
+        const SizedBox(width: 12),
+      ],
     ),
-    const SizedBox(width: 12),
-  ],
-),
 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
